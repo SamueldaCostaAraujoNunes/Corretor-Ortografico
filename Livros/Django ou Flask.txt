@@ -1,0 +1,159 @@
+Alura
+ENTRAR
+MATRICULE-SE
+O que você quer aprender?
+BUSCAR
+FORMAÇÕES
+PARA EMPRESAS
+COMO FUNCIONA
+MOBILE
+PROGRAMAÇÃO
+FRONT-END
+INFRA
+DESIGN & UX
+MARKETING DIGITAL
+DATA SCIENCE
+INOVAÇÃO & GESTÃO
+ARTIGOS DE TECNOLOGIA E NEGÓCIOS > PROGRAMAÇÃO
+Django ou Flask: Características, semelhanças e diferenças
+Guilherme Lima
+Guilherme Lima
+21 de Julho
+Django e Flask são dois frameworks escritos em Python, com foco no desenvolvimento web. Neste artigo vou mostrar as características e semelhanças entre eles.
+
+Django
+Segundo a documentação oficial, o Django é uma estrutura escrita em Python busca o desenvolvimento rápido, design limpo e pragmático. Com código aberto e gratuito, a principal proposta é ajudar o desenvolvedor ou desenvolvedora a pensar na aplicação.
+
+Sua principal convenção é o DRY (Don't Repeat Yourself, em tradução livre: não seja repetitivo), que visa o máximo de proveito do código criado evitando código duplicado.
+
+O Django utiliza um padrão similar ao MVC (model-view-controller), porém aqui chamado de MTV (model-template-view), onde dividimos a aplicação em camadas ou partes, tornando o código mais organizado e legível.
+
+tabela
+
+Porque não chamar de MVC?
+Para quem desenvolve utilizando o Django, o controller é o próprio framework, já que quando uma url é acessada, a própria engine do Django faz o redirecionamento para a view correta, conforme definição nas configurações de url, executando assim o papel do controller.
+
+Flask
+O Flask é baseado na biblioteca WSGI e têm como característica a simplicidade e uma velocidade de criação superior ao Django. É considerado por muitos um pequeno framework, mas ser pequeno não significa que ele faz menos do que outras estruturas.
+
+O Flask foi projetado como uma estrutura extensível desde o início, fornecendo tudo que é necessário para realizar as funcionalidades mais básicos, enquanto as extensões fornecem o restante.
+
+Segundo o criador do framework Armin Ronacher, o Flask possui três dependências principais: as rotas, debugging e Web Server Gateway Interface WSGI.
+
+Comparando o Django e o Flask
+tabela de comparação
+
+Exemplo de sites desenvolvidos
+Sites e companhias que utilizam Django;
+Sites e companhias que utilizam Flask.
+Observe que não existe um framework melhor que o outro e sim objetivos diferentes. Por exemplo, caso queira criar uma aplicação que possua um Admin, ORM para diferentes bancos é recomendado o Django (não significa que o Flask não seja capaz, apenas uma recomendação). Porém, se meu objetivo for velocidade no desenvolvimento de APIs e microsserviços, é recomendado o Flask (não significa que o Django não seja capaz, apenas uma recomendação).
+
+Gostou deste artigo? Aqui na Alura temos cursos e formações de Python para quem quer aprender sobre esta linguagem para programas web que cresce a cada dia.
+
+Cursos de Programação
+ARTIGOS DE TECNOLOGIA E NEGÓCIOS > PROGRAMAÇÃO
+Cursos profissionais de Programação é na Alura, comece agora!
+PREMIUM
+1188 cursos
+Certificado de participação
+App para Android e iPhone/iPad
+Projeto avaliado pelos instrutores
+Acesso à Alura Start
+Acesso à Alura Língua
+12X
+R$75
+à vista R$900
+MATRICULE-SE
+PREMIUM PLUS
+1188 cursos
+Certificado de participação
+App para Android e iPhone/iPad
+Projeto avaliado pelos instrutores
+Acesso à Alura Start
+Acesso à Alura Língua
+12X
+R$100
+à vista R$1.200
+MATRICULE-SE
+MAX
+1188 cursos
+Certificado de participação
+App para Android e iPhone/iPad
+Projeto avaliado pelos instrutores
+Acesso à Alura Start
+Acesso à Alura Língua
+12X
+R$120
+à vista R$1.440
+MATRICULE-SE
+Procurando planos para empresas? →
+Acesso por 1 ano
+Estude 24h/dia onde e quando quiser
+Novos cursos toda semana
+PLANOS
+TODOS OS CURSOS
+GUIAS DE EMPRESAS
+INSTRUTORES
+COMO VIRAR INSTRUTOR
+ARTIGOS
+PARA ESCOLAS
+IMERSÕES
+POLÍTICA DE PRIVACIDADE
+TERMOS DE USO
+SOBRE NÓS
+PERGUNTAS FREQUENTES
+RECEBA NOVIDADES E LANÇAMENTOS
+seu email
+OK
+NOSSAS REDES E APPS
+YOUTUBE FACEBOOK TWITTER PODCAST HIPSTERS.TECH INSTAGRAMGOOGLE PLAY STORE APPSTORE
+FALE CONOSCO
+Dúvida, crítica, sugestão ou elogio?
+
+Entre em contato!
+
+EMPRESA? GOVERNO?
+Planos corporativos para o seu time.
+
+Saiba mais
+
+Alura
+POWERED BY
+Caelum
+AOVS Sistemas de Informática S.A
+CNPJ 05.555.382/0001-33
+
+CURSOS
+Cursos de Mobile
+Flutter, React Native iOS e Swift Android e Kotlin Jogos
+Cursos de Programação
+Lógica Python PHP Java .NET Node JS Ruby & Rails C Computação Jogos
+Cursos de Front-end
+HTML, CSS React Angular JavaScript jQuery
+Cursos de Infraestrutura
+DevOps e Git Cloud Linux IoT Redes
+Cursos de Design & UX
+Photoshop e Illustrator Usabilidade e UX Vídeo e Motion 3D
+Cursos de Marketing Digital
+Ads Marketing SEO E-commerce Social Media YouTube
+Cursos de Data Science
+SQL e Banco de Dados NoSQL Data Science Machine Learning BI Estatística Excel
+Cursos de Inovação & Gestão
+Métodos Ágeis Softskills Liderança e Gestão Startups e Empreendedorismo Vendas
+Grupo Caelum Alura
+
+EDUCAÇÃO
+
+Caelum
+Casa do Código
+EDUCAÇÃO ONLINE
+
+Alura
+Alura Start
+MusicDot
+Alura Língua
+COMUNIDADE
+
+Hipsters ponto Tech
+Hipsters ponto Jobs
+GUJ

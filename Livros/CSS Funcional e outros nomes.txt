@@ -1,0 +1,293 @@
+Alura
+ENTRAR
+MATRICULE-SE
+O que você quer aprender?
+BUSCAR
+FORMAÇÕES
+PARA EMPRESAS
+COMO FUNCIONA
+MOBILE
+PROGRAMAÇÃO
+FRONT-END
+INFRA
+DESIGN & UX
+MARKETING DIGITAL
+DATA SCIENCE
+INOVAÇÃO & GESTÃO
+ARTIGOS DE TECNOLOGIA E NEGÓCIOS > FRONT-END
+CSS Funcional e outros nomes
+Juliana Negreiros
+Juliana Negreiros
+28 de Julho
+
+Formação Front End
+Quem nunca trabalhou em um projeto no qual ninguém queria pegar as tarefas de manutenção do CSS?
+
+O Começo
+Comecei a me questionar sobre isso e quanto mais eu conversava sobre, mais eu comecei a entender que o maior fator para isso acontecer era o medo de quebrar um lugar inimaginável, principalmente em projetos sem uma estrutura bem definida para o CSS.
+
+Já trabalhei em alguns projetos que, sempre que surgia uma nova tarefa para manutenção no CSS, era uma luta para ver quem iria fazer e ninguém ficava muito feliz em pegar essa tarefa. Todo mundo tinha muito medo de mexer no CSS legado e quebrar lugares inimagináveis do site.
+
+E, bom, esse medo era plausível. Tínhamos um arquivo único enorme e o nosso versionamento de código era feito por ftp. Por conta disso, era muito difícil alterar qualquer coisa e, caso conseguíssimos alterar o que precisávamos, existiam altas possibilidades de quebrarmos algo em um lugar desconhecido do site e nunca descobrirmos quem foi.
+
+Nossa super estratégia para evitar essas coisas era inspecionar o código que precisaríamos alterar, ver o seletor mais específico que existia e adicionar esse seletor com mais uma classe que criamos para essa essa modificação.
+
+Claro que essa nossa estratégia criava um arquivo que nunca era renovado com mais de 3 mil linhas e que contava a história inteira do projeto.
+
+Com o tempo, fui gostando cada vez mais de estudar e entender ferramentas que deixassem os projetos mais estruturados e, principalmente, que não desse vontade de morrer em quem for mexer no projeto :)
+
+E, em uma dessas buscas por metodologias, me deparei com o CSS Funcional (ou Atomic CSS/Utility-First CSS).
+
+E como ele funciona?
+Vamos usar o card de cursos em andamento da Alura como exemplo:
+
+print da alura
+
+Analisando a imagem, temos: Título Card Ícone do card Observação sobre o card Título do card Botão azul para ver o conteúdo do curso Botão verde para continuar de onde parou
+
+E esse é o nosso HTML,usando BEM:
+
+https://codepen.io/juunegreiros/pen/oRjYgv
+
+<section class="em-andamento">
+  <h2 class="em-andamento__titulo">Meus cursos em andamento</h2>
+  <div class="cartao">
+    <div class="cartao__conteudo">
+      <img
+        class="cartao__icone"
+        src="https://www.alura.com.br/assets/api/cursos/react.svg"
+      />
+      <div class="cartao__titulo">
+        <span class="cartao__observacao">Último em andamento</span>
+        <span class="cartao__nome"
+          >React parte 1: componentes reutilizáveis para sua webapp</span
+        >
+      </div>
+    </div>
+    <div class="cartao__botoes">
+      <a class="cartao__botao" href="/course/react">Ver conteúdo do curso</a>
+      <a
+        class="cartao__botao cartao__botao--green"
+        href="/course/react/continue"
+        >Continuar onde parou</a
+      >
+    </div>
+  </div>
+</section>
+Apesar de não repetirmos classes graças ao BEM, existem diversos outros cards no nosso site e todos eles possuem layout semelhante, o que significa que estamos duplicando código em vários lugares diferentes. Por isso, decidimos fazer a migração do site para CSS Funcional e essa tarefa ficou para nós :)
+
+A abordagem que o CSS Funcional traz é pensar em pequenos pedaços atômicos (por isso também é conhecido como Atomic CSS) e independentes de CSS para que, ao bater o olho no HTML, você consiga saber exatamente o estilo que aquele item possui. Uma das principais ideias de fazer dessa forma é evitar a escrita de mais CSS.
+
+Essa ideia é contrária ao que o BEM nos diz, já que o BEM trabalha com blocos e elementos que funcionem apenas dentro desses blocos. Então vamos por partes, alterando a nossa forma de pensar esses elementos e fazendo essa migração.
+
+Começando pelo título, que agora deixa de ser um título da seção "em andamento" e passa a ser um elemento com fonte Open Sans, cor de texto cinza escuro, tamanho grande, alinhado para a esquerda e em negrito. E as classes ficariam mais ou menos assim:
+
+<h2 class="cinza-escuro fs-3 fw-2 left">Meus cursos em andamento</h2>
+Depois temos o card, que passa a ser um elemento com o conteúdo alinhado ao centro de acordo com sua posição vertical, com borda pequena de cor cinza claro, fundo branco, sombra na borda padrão, espaçamento interno grande e tamanho máximo de 580px:
+
+<div class="align-center bd-1 bd-color-cinza-claro bg-color-branco bx-sd-1 d-flex f-direction-column m-width-580 pd-3">
+</div>
+O ícone do card deixa de pertencer exclusivamente ao card e passa a ser um elemento com altura de 70px e largura automática em relação a altura:
+
+<img class="w-auto h-70" src="https://www.alura.com.br/assets/api/cursos/react.svg">
+A observação do card passa também deixa de pertencer ao card e passa a ser um elemento de cor de texto cinza escuro e fonte de tamanho pequeno:
+
+<span class="cinza-escuro fs-1">
+Último em andamento
+</span>
+O título do card não pertence mais ao card e passa a ser um elemento de cor de texto cinza escuro, fonte de tamanho grande e negrito mais escuro:
+
+<span class="cinza-escuro fs-3 fw-3">
+React parte 1: componentes reutilizáveis para sua webapp
+</span>
+O botão ver conteúdo do curso agora é um elemento com fundo azul, cor de texto branca, fonte de tamanho pequeno, com espaçamento interno de tamanho médio, centralizado e em caixa alta:
+
+<a class="bg-azul fs-1 uppercase branco decoration-none pd-2 f-grow center" href="/course/react">
+   Ver conteúdo do curso
+</a>
+E, por fim, o botão continuar onde parou se torna um elemento com fundo verde, cor de texto branca, fonte de tamanho pequeno, com espaçamento interno de tamanho médio, centralizado, em caixa alta e com margem esquerda de tamanho pequeno:
+
+<a class="bg-green m-left-1 fs-1 uppercase branco decoration-none pd-2 f-grow center" href="/course/react/continue">
+    Continuar onde parou
+</a>
+E, após adicionar algumas classes de posicionamento, o nosso HTML final ficaria assim:
+
+https://codepen.io/juunegreiros/pen/PvPbwb
+
+<section class="fm-1 m-auto m-bt-3 m-top-3">
+  <h2 class="cinza-escuro fs-3 fw-2 left">Meus cursos em andamento</h2>
+  <div
+    class="align-center bd-1 bd-color-cinza-claro bg-color-branco bx-sd-1 d-flex f-direction-column m-width-580 pd-3"
+  >
+    <div class="align-center d-flex m-bt-2">
+      <img
+        class="w-auto h-70"
+        src="https://www.alura.com.br/assets/api/cursos/react.svg"
+      />
+      <div class="align-start d-flex f-direction-column m-left-2">
+        <span class="cinza-escuro fs-1">
+          Último em andamento
+        </span>
+        <span class="cinza-escuro fs-3 fw-3">
+          React parte 1: componentes reutilizáveis para sua webapp
+        </span>
+      </div>
+    </div>
+
+    <div class="d-flex justify-between w-100">
+      <a
+        class="bg-azul fs-1 uppercase branco decoration-none pd-2 f-grow center"
+        href="/course/react"
+      >
+        Ver conteúdo do curso
+      </a>
+      <a
+        class="bg-green m-left-1 fs-1 uppercase branco decoration-none pd-2 f-grow center"
+        href="/course/react/continue"
+      >
+        Continuar onde parou
+      </a>
+    </div>
+  </div>
+</section>
+Por que usar CSS Funcional?
+A primeira vez que vi esse monte e classe no html, torci muito o nariz e a primeira coisa que pensei foi: “Ué, isso aí não é tipo fazer style-inline, só que com siglas?”. E, bom, não é.
+
+O primeiro aspecto que diferencia bastante do style-inline, é que normalmente usamos ferramentas que já nos dão essas classes prontas e tem uma boa documentação visto que é mais rápido escrever com siglas, mas precisamos saber o que elas representam. Como alguns exemplos, temos Tailwind, BassCSS e o Tachyons.
+
+Além disso, não conseguimos usar variáveis, media queries, :after e :before com style-inline e, o mais importante: escapamos da especificidade do style-inline.
+
+Batendo o olho nesse HTML sabemos exatamente como esse elemento é na tela e, se precisarmos fazer alguma alteração, podemos apenas adicionar ou remover uma classe que já existe.
+
+Além disso, o layout fica mais padronizado, devido às configurações que colocamos nas classes e não precisamos mais nos preocupar em nomear classes e, principalmente, quebrar algo sem querer!
+
+Poxa, bacana. Mas isso definitivamente não me convenceu. E se precisássemos, de repente, fazer com que todos os botões de um site fossem redondos?
+
+Precisaríamos procurar todos os botões, um a um, e adicionar ou remover classes, também um a um.
+
+E, como os elementos não tem uma classe descritiva, não podemos dar um ctrl + f para encontrar esses botões e garantir que realmente alteramos todos. Foi aí que conheci a funcionalidade @apply, do Tailwind. Com ela, conseguimos agrupar várias classes de css dentro de uma maior. No nosso botão do exemplo, poderíamos fazer algo assim:
+
+.btn {
+  @apply fs-1 uppercase branco decoration-none pd-2 f-grow center;
+}
+
+.btn-default {
+  @apply bg-azul;
+}
+E isso fez com que eu pudesse olhar com outros olhos para o CSS Funcional. Claro que, como a ideia do Funcional é fazer as coisas conforme a necessidade, esses componentes, como o .btn, só seriam feitos no momento que percebêssemos que repetimos as mesmas coisas em mais de um lugar e que elas vão caminhar juntas.
+
+Caso queiram saber mais sobre CSS funciona, deixo aqui um link com muitas referências para estudo, uma postagem sobre organização do CSS, uma postagem sobre separação de conceitos e abordagens CSS e um estudo de caso de uma migração do BEM para CSS Funcional.
+
+No geral, gostei bastante dessa abordagem para prototipagem e sistemas com layout padronizado, realmente acelera bastante o desenvolvimento. Para layouts muito complexos, talvez a metodologia acabe dificultando algumas coisas.
+
+Gostou do post e quer saber mais? Aqui na Alura temos uma formação front-end onde você vai aprender mais sobre HTML e CSS
+
+
+Formação Front End
+Cursos de Front-end
+ARTIGOS DE TECNOLOGIA E NEGÓCIOS > FRONT-END
+Cursos profissionais de Front-end é na Alura, comece agora!
+PREMIUM
+1188 cursos
+Certificado de participação
+App para Android e iPhone/iPad
+Projeto avaliado pelos instrutores
+Acesso à Alura Start
+Acesso à Alura Língua
+12X
+R$75
+à vista R$900
+MATRICULE-SE
+PREMIUM PLUS
+1188 cursos
+Certificado de participação
+App para Android e iPhone/iPad
+Projeto avaliado pelos instrutores
+Acesso à Alura Start
+Acesso à Alura Língua
+12X
+R$100
+à vista R$1.200
+MATRICULE-SE
+MAX
+1188 cursos
+Certificado de participação
+App para Android e iPhone/iPad
+Projeto avaliado pelos instrutores
+Acesso à Alura Start
+Acesso à Alura Língua
+12X
+R$120
+à vista R$1.440
+MATRICULE-SE
+Procurando planos para empresas? →
+Acesso por 1 ano
+Estude 24h/dia onde e quando quiser
+Novos cursos toda semana
+PLANOS
+TODOS OS CURSOS
+GUIAS DE EMPRESAS
+INSTRUTORES
+COMO VIRAR INSTRUTOR
+ARTIGOS
+PARA ESCOLAS
+IMERSÕES
+POLÍTICA DE PRIVACIDADE
+TERMOS DE USO
+SOBRE NÓS
+PERGUNTAS FREQUENTES
+RECEBA NOVIDADES E LANÇAMENTOS
+seu email
+OK
+NOSSAS REDES E APPS
+YOUTUBE FACEBOOK TWITTER PODCAST HIPSTERS.TECH INSTAGRAMGOOGLE PLAY STORE APPSTORE
+FALE CONOSCO
+Dúvida, crítica, sugestão ou elogio?
+
+Entre em contato!
+
+EMPRESA? GOVERNO?
+Planos corporativos para o seu time.
+
+Saiba mais
+
+Alura
+POWERED BY
+Caelum
+AOVS Sistemas de Informática S.A
+CNPJ 05.555.382/0001-33
+
+CURSOS
+Cursos de Mobile
+Flutter, React Native iOS e Swift Android e Kotlin Jogos
+Cursos de Programação
+Lógica Python PHP Java .NET Node JS Ruby & Rails C Computação Jogos
+Cursos de Front-end
+HTML, CSS React Angular JavaScript jQuery
+Cursos de Infraestrutura
+DevOps e Git Cloud Linux IoT Redes
+Cursos de Design & UX
+Photoshop e Illustrator Usabilidade e UX Vídeo e Motion 3D
+Cursos de Marketing Digital
+Ads Marketing SEO E-commerce Social Media YouTube
+Cursos de Data Science
+SQL e Banco de Dados NoSQL Data Science Machine Learning BI Estatística Excel
+Cursos de Inovação & Gestão
+Métodos Ágeis Softskills Liderança e Gestão Startups e Empreendedorismo Vendas
+Grupo Caelum Alura
+
+EDUCAÇÃO
+
+Caelum
+Casa do Código
+EDUCAÇÃO ONLINE
+
+Alura
+Alura Start
+MusicDot
+Alura Língua
+COMUNIDADE
+
+Hipsters ponto Tech
+Hipsters ponto Jobs
+GUJ
