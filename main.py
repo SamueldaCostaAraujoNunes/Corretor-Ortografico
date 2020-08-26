@@ -2,7 +2,7 @@ from leitor_de_arquivos import LeitorDeArquivos
 from limpador_de_lista import LimpadorDeLista
 from corretor import Corretor
 
-lista_de_palavras = LeitorDeArquivos().ler_o_arquivo()#.ler_a_pasta()#
+lista_de_palavras = LeitorDeArquivos().ler_a_pasta()#.ler_o_arquivo()#
 lista_de_palavras = LimpadorDeLista(lista_de_palavras).limpar()
 lista_de_palavras_conjunto = sorted(list(set(lista_de_palavras)))
 
