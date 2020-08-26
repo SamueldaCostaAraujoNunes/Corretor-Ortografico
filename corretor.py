@@ -14,6 +14,13 @@ class Corretor:
     def is_correct(self):
         return self.__palavra in self.__bd
 
+    def __inverte_letra(self, fatiado):
+        esquerda, direita = fatiado
+        if len(direita) > 1:
+            palavra = esquerda + direita[1] + direita[0] + direita[2:]
+            return [palavra]
+        else: 
+            return []
 
     def __insere_letra(self, fatiado):
         palavras = []
@@ -51,5 +58,6 @@ class Corretor:
         palavras_geradas = self.gerador_de_palavras(self.__insere_letra)
         palavras_geradas += self.gerador_de_palavras(self.__delete_letra)
         palavras_geradas += self.gerador_de_palavras(self.__troca_letra)
+        palavras_geradas += self.gerador_de_palavras(self.__inverte_letra)
         palavra_correta = max(palavras_geradas, key=self.probabilidade)
         return palavra_correta
