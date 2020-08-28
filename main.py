@@ -21,4 +21,4 @@ while True:
             n_frase += corretor.corrigir() + " "
 
     print(n_frase)
-    n_frase = ''
+    n_frase = '' 
