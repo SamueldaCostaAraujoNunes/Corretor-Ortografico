@@ -1,8 +1,9 @@
 import nltk
 
+
 class Corretor:
 
-    def __init__(self, bd, palavra = ''):
+    def __init__(self, bd, palavra=''):
         self.__palavra = palavra.lower()
         self.__bd = bd
         self.frequencia = nltk.FreqDist(bd)
@@ -19,7 +20,7 @@ class Corretor:
         if len(direita) > 1:
             palavra = esquerda + direita[1] + direita[0] + direita[2:]
             return [palavra]
-        else: 
+        else:
             return []
 
     def __insere_letra(self, fatiado):
@@ -50,10 +51,9 @@ class Corretor:
             palavras += metodo(fatiado)
         return palavras
 
-
     def probabilidade(self, palavra_gerada):
         return self.frequencia[palavra_gerada]/self.tamanho
-        
+
     def corrigir(self):
         palavras_geradas = self.gerador_de_palavras(self.__insere_letra)
         palavras_geradas += self.gerador_de_palavras(self.__delete_letra)
